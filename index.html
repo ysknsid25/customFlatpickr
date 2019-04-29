@@ -10,10 +10,24 @@
 </head>
 <body>
 
-<input type="text" id="flatpickr">
-
+<input type="text" id="flatpickrDate" readonly>
+<br>
+<input type="text" id="flatpickrTime" readonly>
 <script>
-flatpickr("#flatpickr", {locale:"ja",minDate:"today"});
+    flatpickr("#flatpickrDate", {locale:"ja",minDate:"today"});
+    flatpickr("#flatpickrTime", {
+    enableTime: true, // タイムピッカーを有効
+    noCalendar: true, // カレンダーを非表示
+    enableSeconds: false, // '秒' を無効
+    time_24hr: false, // 24時間表示
+    dateFormat: "H:i", // 時間のフォーマット "時:分"
+    minuteIncrement: 10,
+    // タイムピッカーのデフォルトタイム
+    // 下記の場合はタイムピッカーを開いた時に '9:00'で表示
+    defaultHour: 12, // 時
+    defaultMinute: 0, // 分
+    // defaultDate: '9:00' // 時間を予めセットする時の設定
+    });
 </script>
 </body>
 </html>
